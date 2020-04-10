@@ -176,8 +176,8 @@ form.example::after {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="Vegetable.php">Fruits</a>
-      <a href="#">Vegetables</a>
+      <a href="fruits.php">Fruits</a>
+      <a href="Vegetable.php">Vegetables</a>
 
     </div>
   </div>
