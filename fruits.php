@@ -122,6 +122,7 @@ form.example::after {
 .price {
   color: grey;
   font-size: 22px;
+  text-align: center;
 }
 
 .card button {
@@ -187,10 +188,18 @@ form.example::after {
 <br>
 <br>
 <h2><p><span class="tab">Fruits</span></p><h2>
-  <div class="card">
-    <img src="apple.jpg" alt="apple" style="width:10%" align="left">
-    <br>
+  <div class="card" align="center">
+    <img src="apple.jpg" alt="apple" style="width:20%">
     <h3>Apple</h3>
+    <p class="price">$1</p>
+    <p><button>Add to Cart</button></p>
+  </div>
+  <br>
+  <br>
+
+  <div class="card" align="center">
+    <img src="banana.jpg" alt="banana" style="width:20%">
+    <h3>Banana</h3>
     <p class="price">$1</p>
     <p><button>Add to Cart</button></p>
   </div>
