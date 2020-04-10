@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<h2>Create new 1Account</h2>
+<h2>Create new Account</h2>
 
 <form action="/create-account.php">
   <p align="center">
