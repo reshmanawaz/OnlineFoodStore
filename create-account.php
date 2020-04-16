@@ -25,28 +25,5 @@
   <input type="submit" value="Submit">
 </form>
 
-
-
 </body>
 </html>
-
-
-<?php
-
-  $fname = $_POST['fname'];
-  $lname = $_POST['lname'];
-  $username = $_POST['user'];
-  $password = $_POST['password'];
-
-  //Database connection
-
-    $conn = new mysqli('localhost', 'root', '','customers');
-    if($conn->connect_error){
-      die('Connection Failed : ', $conn->connect_error)
-    } $stmt = $conn->prepare("insert into registration(fname, lname, user, password) values(?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $fname, $lname, $username, $password);
-    $stmt->execute();
-    echo"Registration Successful!";
-    $stmt->close();
-    $conn->close();
- ?>
