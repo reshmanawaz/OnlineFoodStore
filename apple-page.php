@@ -1,6 +1,7 @@
 <html>
 <head>
-<title>Log in</title>
+<title>Home</title>
+</head>
 <style>
 img {
   display: block;
@@ -108,27 +109,57 @@ form.example::after {
   clear: both;
   display: table;
 }
+.tab {position:absolute;left:150px; }
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+  text-align: center;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 10%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
 </style>
-</head>
 <body>
   <p>
 
     <a href="homepage.php">
       <img src="logo.png" alt="Logo" style="width:16%;">
     </a>
-  </p>
+</p>
 
-  <form class="example" action="/action_page.php">
+<form class="example" action="/action_page.php">
   <button type="submit">Search<i class="fa fa-search"></i></button>
   <input type="text" placeholder="Search products.." name="search">
 
-  </form>
-  <a href="cart.php">
-  <img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
-  </a>
+</form>
+<a href="cart.php">
+<img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
+</a>
 
 
-  <div class="dropdown" style="float:right;">
+<div class="dropdown" style="float:right;">
   <img src="login logo.png" alt="Log" width="50" height="50" align="left">
   <button class="dropbtn">Log In/ Sign Up</button>
 
@@ -137,8 +168,8 @@ form.example::after {
   <a href="create-account.php">Create Account</a>
 
   </div>
-  </div>
-  <div class="navbar" style:"float:middle;">
+</div>
+<div class="navbar" style:"float:middle;">
 
   <div class="dropdown">
     <button class="dropbtn">Shop
@@ -153,35 +184,18 @@ form.example::after {
 
   <a href="#news">Delivery</a>
   <a href="#home">About Us</a>
+</div>
+<br>
+<br>
+<h2><p><span class="tab">Fruits</span></p><h2>
+  <div class="card" align="center">
+    <img src="apple.jpg" alt="apple" style="width:30%">
+    <h3>Apple</h3>
+    <p class="price">$1/lb</p>
+    <p><button>Add to Cart</button></p>
   </div>
-
-
-<h2 style="text-align:center">Create new Account</h2>
-
-<form action="connect.php" method="post">
-  <p align="center">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname">
-  </p>
-  <p align="center">
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname">
-  </p>
-  <p align="center">
-    <label for="username">Username:</label>
-    <input type="text" id="user" name="username">
-  </p>
-  <p align="center">
-    <label for="pw">Password:</label>
-    <input type="text" id="password" name="password">
-    <br>
-    <br>
-    <input type="submit" value="Submit">
-  </p>
   <br>
   <br>
-
-</form>
 
 </body>
 </html>

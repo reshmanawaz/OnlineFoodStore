@@ -110,6 +110,10 @@ form.example::after {
   clear: both;
   display: table;
 }
+form {
+  text-align: center;
+}
+.tab {position:absolute;left:150px; }
 </style>
 <body>
   <p>
@@ -156,12 +160,17 @@ form.example::after {
   <a href="#home">About Us</a>
 </div>
 <br>
-<h3> Please input user name and password<h3>
-<form action="/login.php" method="post">
+<br>
+<br>
+<h3 style="text-align:center" ><p>Please input username and password</span></p></h3>
+<br>
 
- <input type="text" name="username">
- <input type="password" name="password">
- <input type="submit">
+<form action="/login.php" method="post">
+<input type="text" name="username">
+
+<input type="password" name="password">
+
+<input type="submit">
 </form>
 
 
@@ -185,6 +194,7 @@ $row = mysqli_fetch_assoc($results);
 if ($row["password"] === $password) {
 $logged_in = true;
  echo "Welcome " . $_POST["username"];
+ echo" Redirecting to the home page now...";
 $sql = "SELECT * FROM customers";
 $results = mysqli_query($conn, $sql);
 header("refresh:5;url=http://localhost/homepage.php");
