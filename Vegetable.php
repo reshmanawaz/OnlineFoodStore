@@ -199,7 +199,7 @@ form.example::after {
 
   <div class="card" align="center">
     <img src="Tomato.png" alt="Tomato" style="width:20%">
-    <h3>Banana</h3>
+    <h3>Tomato</h3>
     <p class="price">$1</p>
     <p><button>Add to Cart</button></p>
   </div>
