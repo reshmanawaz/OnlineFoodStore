@@ -192,7 +192,7 @@ form.example::after {
     <img src="apple.jpg" alt="apple" style="width:20%">
     <h3>Apple</h3>
     <p class="price">$1</p>
-    <form action="connect-cart.php" method="post">
+    <form action="connect-fcart.php" method="post">
       <p><button>Add to Cart</button></p>
       <input type="hidden" name="id" value="Apple" />
       <input type="hidden" name="price" value="1" />
@@ -207,7 +207,7 @@ form.example::after {
     <img src="banana.jpg" alt="banana" style="width:20%">
     <h3>Banana</h3>
     <p class="price">$1</p>
-    <form action="connect-cart.php" method="post">
+    <form action="connect-fcart.php" method="post">
       <p><button>Add to Cart</button></p>
       <input type="hidden" name="id" value="Banana" />
       <input type="hidden" name="price" value="1" />
