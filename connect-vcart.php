@@ -6,7 +6,7 @@ $stock= $_POST["stock"];
 $weight= $_POST["weight"];
 
 
-$conn = mysqli_connect("localhost", "root", "", "inventory");
+$conn = mysqli_connect("localhost", "root", "", "users");
 
 if (!$conn) {
 die("Connection failed: " . mysqli_connect_error());
