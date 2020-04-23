@@ -192,7 +192,13 @@ form.example::after {
     <img src="Asparagus.png" alt="Asparagus" style="width:20%">
     <h3>Asparagus</h3>
     <p class="price">$1</p>
-    <p><button>Add to Cart</button></p>
+    <form action="connect-vcart.php" method="post">
+      <p><button>Add to Cart</button></p>
+      <input type="hidden" name="id" value="Asparagus" />
+      <input type="hidden" name="price" value="1" />
+      <input type="hidden" name="stock" value="1" />
+      <input type="hidden" name="weight" value="1" />
+    </form>
   </div>
   <br>
   <br>
@@ -201,7 +207,13 @@ form.example::after {
     <img src="Tomato.png" alt="Tomato" style="width:20%">
     <h3>Tomato</h3>
     <p class="price">$1</p>
-    <p><button>Add to Cart</button></p>
+    <form action="connect-vcart.php" method="post">
+      <p><button>Add to Cart</button></p>
+      <input type="hidden" name="id" value="Tomato" />
+      <input type="hidden" name="price" value="1" />
+      <input type="hidden" name="stock" value="1" />
+      <input type="hidden" name="weight" value="1" />
+    </form>
   </div>
 
 </body>
