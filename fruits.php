@@ -189,6 +189,7 @@ form.example::after {
 <br>
 <h2><p><span class="tab">Fruits</span></p><h2>
   <div class="card" align="center">
+    <a href="apple-page.php">
     <img src="apple.jpg" alt="apple" style="width:20%">
     <h3>Apple</h3>
     <p class="price">$1</p>
@@ -204,8 +205,24 @@ form.example::after {
   <br>
 
   <div class="card" align="center">
+    <a href="asparagus-page.php">
     <img src="banana.jpg" alt="banana" style="width:20%">
+
     <h3>Banana</h3>
+    <p class="price">$1</p>
+    <form action="connect-fcart.php" method="post">
+      <p><button>Add to Cart</button></p>
+      <input type="hidden" name="id" value="Banana" />
+      <input type="hidden" name="price" value="1" />
+      <input type="hidden" name="stock" value="1" />
+      <input type="hidden" name="weight" value="1" />
+    </form>
+  </div>
+  <div class="card" align="center">
+    <a href="orange-page.php">
+    <img src="orange.jpg" alt="orange " style="width:20%">
+
+    <h3>Orange</h3>
     <p class="price">$1</p>
     <form action="connect-fcart.php" method="post">
       <p><button>Add to Cart</button></p>
