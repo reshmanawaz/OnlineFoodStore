@@ -192,13 +192,11 @@ form.example::after {
     <img src="banana.jpg" alt="Banana" style="width:30%">
     <h3>Banana</h3>
     <p class="price">$1/lb</p>
-    <form action="connect-fcart.php" method="post">
-      <p><button>Add to Cart</button></p>
-      <input type="hidden" name="id" value="Banana" />
-      <input type="hidden" name="price" value="1" />
-      <input type="hidden" name="stock" value="1" />
-      <input type="hidden" name="weight" value="1" />
-    </form>
+    <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Banana" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
   </div>
   <br>
   <br>
