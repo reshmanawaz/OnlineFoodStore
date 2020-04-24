@@ -154,7 +154,8 @@ form.example::after {
   <input type="text" placeholder="Search products.." name="search">
 
 </form>
-<a href="cart.php">
+<a class"cart" href="cart.php">
+  <span style="float:right">0</span>
 <img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
 </a>
 
@@ -189,32 +190,35 @@ form.example::after {
 <br>
 <h2><p><span class="tab">Vegetable</span></p><h2>
   <div class="card" align="center">
+    <a href="asparagus-page.php">
     <img src="Asparagus.png" alt="Asparagus" style="width:20%">
     <h3>Asparagus</h3>
-    <p class="price">$1</p>
-    <form action="connect-vcart.php" method="post">
-      <p><button>Add to Cart</button></p>
-      <input type="hidden" name="id" value="Asparagus" />
-      <input type="hidden" name="price" value="1" />
-      <input type="hidden" name="stock" value="1" />
-      <input type="hidden" name="weight" value="1" />
-    </form>
+  </a>
+    <p class="price">$1/lb</p>
+    <p><button>Add to Cart</button></p>
   </div>
   <br>
   <br>
 
   <div class="card" align="center">
+    <a href="tomato-page.php">
     <img src="Tomato.png" alt="Tomato" style="width:20%">
     <h3>Tomato</h3>
-    <p class="price">$1</p>
-    <form action="connect-vcart.php" method="post">
-      <p><button>Add to Cart</button></p>
-      <input type="hidden" name="id" value="Tomato" />
-      <input type="hidden" name="price" value="1" />
-      <input type="hidden" name="stock" value="1" />
-      <input type="hidden" name="weight" value="1" />
-    </form>
+  </a>
+    <p class="price">$1/lb</p>
+    <p><button>Add to Cart</button></p>
   </div>
 
+  <br>
+  <br>
+
+  <div class="card" align="center">
+    <a href="lettuce-page.php">
+    <img src="lettuce.jpg" alt="Lettuce" style="width:20%">
+    <h3>Lettuce</h3>
+  </a>
+    <p class="price">$1/lb</p>
+    <p><button>Add to Cart</button></p>
+  </div>
 </body>
 </html>
