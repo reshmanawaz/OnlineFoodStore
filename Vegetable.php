@@ -141,13 +141,12 @@ form.example::after {
   opacity: 0.7;
 }
 </style>
-<body>
-  <p>
+<body style="background-color:Cornsilk;">
 
     <a href="homepage.php">
-      <img src="logo.png" alt="Logo" style="width:12%;">
+      <img src="logo.png" alt="Logo" width="350" height="350">
     </a>
-</p>
+
 
 <form class="example" action="/action_page.php">
   <button type="submit">Search<i class="fa fa-search"></i></button>
@@ -155,7 +154,7 @@ form.example::after {
 
 </form>
 <a class"cart" href="cart.php">
-  <span style="float:right">0</span>
+
 <img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
 </a>
 
@@ -171,7 +170,7 @@ form.example::after {
   </div>
 </div>
 <div class="navbar" style:"float:middle;">
-
+<a href="homepage.php">Home</a>
   <div class="dropdown">
     <button class="dropbtn">Shop
       <i class="fa fa-caret-down"></i>
@@ -195,7 +194,13 @@ form.example::after {
     <h3>Asparagus</h3>
   </a>
     <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Tomato" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
+      </form>
   </div>
   <br>
   <br>
@@ -206,7 +211,13 @@ form.example::after {
     <h3>Tomato</h3>
   </a>
     <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Tomato" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
+  </form>
   </div>
 
   <br>
@@ -218,7 +229,13 @@ form.example::after {
     <h3>Lettuce</h3>
   </a>
     <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Lettuce" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
+      </form>
   </div>
 </body>
 </html>

@@ -109,12 +109,15 @@ form.example::after {
   clear: both;
   display: table;
 }
-</style>
-<body>
-  <p>
 
+</style>
+<body style="background-color:Cornsilk;">
+  <p>
+<div style="position: relative; left: 0; top: 0;">
     <a href="homepage.php">
-      <img src="logo.png" alt="Logo" style="width:16%;">
+      <img src="logo.png" alt="Logo" width="350" height="350">
+
+
     </a>
 </p>
 
@@ -123,8 +126,9 @@ form.example::after {
   <input type="text" placeholder="Search products.." name="search">
 
 </form>
-<a href="cart.php">
-<img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
+<a class ="cart" href="cart.php">
+
+  <img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
 </a>
 
 
@@ -139,7 +143,7 @@ form.example::after {
   </div>
 </div>
 <div class="navbar" style:"float:middle;">
-
+  <a href="homepage.php">Home</a>
   <div class="dropdown">
     <button class="dropbtn">Shop
       <i class="fa fa-caret-down"></i>
@@ -154,7 +158,11 @@ form.example::after {
   <a href="#news">Delivery</a>
   <a href="#home">About Us</a>
 </div>
-
+<br>
+<br>
+<p>
+<img src="homePicture.jpg" alt"backgroundF" width="1500" height="600">
+</p>
 
 </body>
 </html>
