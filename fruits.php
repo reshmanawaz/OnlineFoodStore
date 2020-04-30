@@ -187,7 +187,7 @@ form.example::after {
 <h2><p><span class="tab">Fruits</span></p><h2>
   <div class="card" align="center">
     <a href="apple-page.php">
-    <img src="apple.jpg" alt="apple" style="width:20%">
+    <img src="apple.png" alt="apple" style="width:20%">
     <h3>Apple</h3>
     <p class="price">$1</p>
     <form action="connect-fcart.php" method="post">
@@ -203,7 +203,7 @@ form.example::after {
 
   <div class="card" align="center">
     <a href="asparagus-page.php">
-    <img src="banana.jpg" alt="banana" style="width:20%">
+    <img src="banana.png" alt="banana" style="width:20%">
 
     <h3>Banana</h3>
     <p class="price">$1</p>
@@ -217,7 +217,7 @@ form.example::after {
   </div>
   <div class="card" align="center">
     <a href="orange-page.php">
-    <img src="orange.jpg" alt="orange " style="width:20%">
+    <img src="orange.png" alt="orange " style="width:20%">
 
     <h3>Orange</h3>
     <p class="price">$1</p>

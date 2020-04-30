@@ -225,7 +225,7 @@ form.example::after {
 
   <div class="card" align="center">
     <a href="lettuce-page.php">
-    <img src="lettuce.jpg" alt="Lettuce" style="width:20%">
+    <img src="lettuce.png" alt="Lettuce" style="width:20%">
     <h3>Lettuce</h3>
   </a>
     <p class="price">$1/lb</p>
