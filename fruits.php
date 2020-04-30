@@ -202,7 +202,7 @@ form.example::after {
   <br>
 
   <div class="card" align="center">
-    <a href="asparagus-page.php">
+    <a href="banana-page.php">
     <img src="banana.png" alt="banana" style="width:20%">
 
     <h3>Banana</h3>

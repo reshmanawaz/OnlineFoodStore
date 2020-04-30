@@ -188,7 +188,7 @@ form.example::after {
 <br>
 <h2><p><span class="tab">Fruits</span></p><h2>
   <div class="card" align="center">
-    <img src="orange.jpg" alt="orange" style="width:30%">
+    <img src="orange.png" alt="orange" style="width:30%">
     <h3>Orange</h3>
     <p class="price">$1/lb</p>
     <p><button>Add to Cart</button></p>
