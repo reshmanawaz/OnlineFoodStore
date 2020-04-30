@@ -20,10 +20,9 @@ if($result2){
 $row = mysqli_fetch_array($result2);
 $stock = $row['product_stock'];
 $updatedStock = $stock - 1;
-$sql_database = "UPDATE products SET product_stock ='$updatedStock' where product_id = '$id'";
+$sql_database = "UPDATE products SET product_stock =  $updatedStock  where product_id = '$id'";
+$result3 = mysqli_query($new, $sql_database);
 echo "Item has been remove from stock.";
-echo $sql_database;
-header("refresh:1.5;url=http://localhost/fruits.php");
 
 }else {
     header("refresh:1.5;url=http://localhost/homepage.php");
