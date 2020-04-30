@@ -154,8 +154,8 @@ form {
     </div>
   </div>
 
-  <a href="#news">Delivery</a>
-  <a href="#home">About Us</a>
+  <a href="delivery.php">Delivery</a>
+  <a href="about_us.php">About Us</a>
 </div>
 <br>
 <br>
