@@ -194,7 +194,13 @@ form.example::after {
     <h3>Asparagus</h3>
   </a>
     <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Tomato" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
+      </form>
   </div>
   <br>
   <br>
@@ -205,7 +211,13 @@ form.example::after {
     <h3>Tomato</h3>
   </a>
     <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Tomato" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
+  </form>
   </div>
 
   <br>
@@ -217,7 +229,13 @@ form.example::after {
     <h3>Lettuce</h3>
   </a>
     <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
+    <input type="hidden" name="id" value="Lettuce" />
+    <input type="hidden" name="price" value="1" />
+    <input type="hidden" name="stock" value="1" />
+    <input type="hidden" name="weight" value="1" />
+      </form>
   </div>
 </body>
 </html>
