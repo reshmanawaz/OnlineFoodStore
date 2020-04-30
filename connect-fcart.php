@@ -7,22 +7,22 @@ $weight= $_POST["weight"];
 
 
 $conn = mysqli_connect("localhost", "root", "", "users");
-$new = mysqli_connect("localhost", "root", "", "users"); 
 
-if (!$new) {
+
+if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     }
 
 $sql_database = "SELECT * from products where product_id = '$id'";
-mysqli_select_db($new, "products");
-$result2 = mysqli_query($new, $sql_database);
+mysqli_select_db($conn, "products");
+$result2 = mysqli_query($conn, $sql_database);
 if($result2){
 $row = mysqli_fetch_array($result2);
 $stock = $row['product_stock'];
 $updatedStock = $stock - 1;
 $sql_database = "UPDATE products SET product_stock =  $updatedStock  where product_id = '$id'";
-$result3 = mysqli_query($new, $sql_database);
-echo "Item has been remove from stock.";
+$result3 = mysqli_query($conn, $sql_database);
+echo "Item has been remove from stock. ";
 
 }else {
     header("refresh:1.5;url=http://localhost/homepage.php");
