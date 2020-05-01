@@ -157,6 +157,7 @@ form.example::after {
 
   <a href="delivery.php">Delivery</a>
   <a href="about_us.php">About Us</a>
+
 </div>
 <br>
 <br>

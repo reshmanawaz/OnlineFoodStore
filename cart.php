@@ -109,6 +109,34 @@ form.example::after {
   clear: both;
   display: table;
 }
+
+
+
+table {
+border-collapse: collapse;
+width: 70%;
+color: #588c7e;
+font-family: monospace;
+font-size: 25px;
+text-align: left;
+}
+th {
+background-color: #588c7e;
+color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<th>Item</th>
+<th>Quantity  </th>
+<th>Price  </th>
+<th>Weight</th>
+</tr>
+
+
 </style>
 <body style="background-color:Cornsilk;">
 
@@ -155,11 +183,42 @@ form.example::after {
 
   <a href="delivery.php">Delivery</a>
   <a href="about_us.php">About Us</a>
-
-
 </div>
 
 
 
+<?php
+$product_id = "Item";
+$product_weight = "Quantity";
+$product_price = "Price";
+$product_weight = "Weight";
+//$mysqli = new mysqli("localhost", "root", "", "users" $product_id, $product_price, $product_weight);
+$conn = mysqli_connect("localhost", "root", "", "users");
+//$sql = "SELECT 'product_id', 'product_stock', 'product_price' FROM cart";
+$sql = "SELECT * FROM cart";
+//$result = $conn->query($sql);
+$records = mysqli_query($conn, $sql);
+
+//if ($result = $conn->query($sql)) {
+  //  while ($row = $result->fetch_assoc()) {
+  while($row = mysqli_fetch_array($records)){
+//        $field1name = $row["product_id"];
+//        $field2name = $row["product_price"];
+//        $field3name = $row["product_stock"];
+
+echo "<tr>";
+echo "<td>".$row['product_id']."</td>";
+echo "<td>".$row['product_stock']."</td>";
+echo "<td>$".$row['product_price']."</td>";
+echo "<td>".$row['product_weight']." lb</td>";
+//echo '<tr>
+//          <td>'.$field1name.'</td>
+//          <td>'.$field2name.'</td>
+//          <td>'.$field3name.'</td>
+//      </tr>';
+
+  //  $result->free();
+}
+?>
 </body>
 </html>
