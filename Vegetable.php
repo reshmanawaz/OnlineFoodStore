@@ -196,7 +196,7 @@ form.example::after {
     <p class="price">$1/lb</p>
     <form action="connect-fcart.php" method="post">
     <p><button>Add to Cart</button></p>
-    <input type="hidden" name="id" value="Tomato" />
+    <input type="hidden" name="id" value="Asparagus" />
     <input type="hidden" name="price" value="1" />
     <input type="hidden" name="stock" value="1" />
     <input type="hidden" name="weight" value="1" />

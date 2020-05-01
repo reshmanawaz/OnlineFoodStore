@@ -163,9 +163,10 @@ form.example::after {
 <div>
   <h1 style="text-align:center">Delivery policy</h1>
   <br>
-  <p style="margin-left:30%">Free delivery under 20 pounds, or 5 dollars will be charged</p>
-  <p style="margin-left:30%">All orders to United States are inclusive of import duties</p>
-  <p style="margin-left:30%">There can be some shipping delay because of COVID - 19 virus situation</p>
+  <p style="margin-left:30%">There is a set shipping cost of $5 per orders weighing 20+ pounds, otherwise it's free!</p>
+  <p style="margin-left:30%">All orders to United States are inclusive of import duties.</p>
+  <p style="margin-left:30%">Due to complications from COVID-19, there may be some shipping delays. </p>
+  <p style="margin-left:30%">We apologize for any inconvenience and appreciate your continued support! </p>
 </div>
 </body>
 </html>
