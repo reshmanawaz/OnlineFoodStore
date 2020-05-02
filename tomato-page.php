@@ -71,6 +71,108 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+@import "compass/css3";
+
+.performance-facts {
+  border: 1px solid black;
+  position: absolute;
+  top: 608px;
+  left: 120px;
+  margin: 12px;
+  float: left;
+  width: 280px;
+  padding: 0.2rem;
+  table {
+    border-collapse: collapse;
+  }
+}
+
+.performance-facts__header {
+  border-bottom: 10px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+  p {
+    margin: 0;
+  }
+}
+.performance-facts__table {
+  width: 100%;
+  thead tr {
+    th, td {
+      border: 1;
+    }
+  }
+  th, td {
+    font-weight: normal;
+    text-align: left;
+    padding: 0.25rem 0;
+    border-top: 1px solid black;
+    white-space: nowrap;
+  }
+  td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+  .blank-cell {
+    width: 1rem;
+    border-top: 0;
+  }
+  .thick-row {
+    th, td {
+      border-top-width: 6px;
+    }
+  }
+}
+.small-info {
+  font-size: 0.9rem;
+}
+
+.performance-facts__table--small {
+  @extend .performance-facts__table;
+  border-bottom: 1px solid #999;
+  margin: 0 0 0.5rem 0;
+  thead {
+    tr {
+      border-bottom: 2px solid black;
+    }
+  }
+  td {
+    &:last-child {
+      text-align: left;
+    }
+  }
+  th, td {
+    border: 1;
+    padding: 0;
+  }
+}
+
+.performance-facts__table--grid {
+  @extend .performance-facts__table;
+  margin: 0 0 0.5rem 0;
+  td {
+    &:last-child {
+      text-align: left;
+      &::before {
+        content: "•";
+        font-weight: bold;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-end {
+  border-bottom: 20px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
+
 body {
   font-family: Arial;
 }
@@ -186,7 +288,7 @@ form.example::after {
 </div>
 <br>
 <br>
-<h2><p><span class="tab">Vegetables</span></p><h2>
+<h2><h1><span class="tab">Vegetables</span></h1><h2>
   <div class="card" align="center">
     <img src="tomato.png" alt="Tomato" style="width:30%">
     <h3>Tomato</h3>
@@ -200,6 +302,95 @@ form.example::after {
   </div>
   <br>
   <br>
+
+  <section class="performance-facts">
+              <b>Nutrition Facts:</b>
+              <tr>
+              <p colspan="2" class="small-info">
+            Serving Size: 1 Tomato (149g)
+          </p>
+          <p colspan="2" class="small-info">
+            Calories per serving: 27
+          </p>
+          </tr>
+
+    <table class="performance-facts__table--grid">
+      <tbody>
+        <tr>
+          <tr>
+            <tr>
+              <tr>
+          <td colspan="2">
+            Vitamin A:
+            25%
+          </td>
+          <td>
+            Vitamin C:
+            32%
+          </td>
+        </tr>
+        </tr>
+      </tr>
+    </tr>
+        <tr class="thin-end">
+          <td colspan="2">
+            Calcium:
+            1%
+          </td>
+          <td>
+            Iron:
+            2%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="performance-facts__table--small small-info">
+      <thead>
+        <tr>
+          <td colspan=1></td>
+          <th>Breakdown:</th>
+          <th>Amount:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="2">Total Fat</th>
+          <td>0g</td>
+        </tr>
+        <tr>
+          <td class="blank-cell"></td>
+          <th>Saturated Fat</th>
+          <td>0g</td>
+        </tr>
+        <td class="blank-cell"></td>
+        <th>Cholesterol</th>
+        <td>0g</td>
+      </tr>
+        <tr>
+          <th colspan="2">Protein</th>
+          <td>1g</td>
+        </tr>
+        <tr>
+          <th colspan="2">Sodium</th>
+          <td>7mg</td>
+        </tr>
+        <tr>
+          <th colspan="2">Total Carbohydrate</th>
+          <td>6g</td>
+        </tr>
+        <tr>
+          <th colspan="2">Dietary Fiber</th>
+          <td>2g</td>
+        </tr>
+        <tr>
+          <th colspan="2">Sugar</th>
+          <td>4g</td>
+        </tr>
+      </tbody>
+    </table>
+  <p class="small-info" style = margin: auto;>* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs *</p>
+  </section>
 </body>
 
 <style>
