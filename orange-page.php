@@ -288,7 +288,7 @@ form.example::after {
 </div>
 <br>
 <br>
-<h2><p><span class="tab">Fruits</span></p><h2>
+<h2><h1><span class="tab">Fruits</span></h1><h2>
   <div class="card" align="center">
     <img src="orange.png" alt="orange" style="width:30%">
     <h3>Orange</h3>
