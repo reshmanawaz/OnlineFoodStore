@@ -109,26 +109,52 @@ form.example::after {
   clear: both;
   display: table;
 }
+.tab {position:absolute;left:150px; }
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
+.price {
+  color: grey;
+  font-size: 22px;
+  text-align: center;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 10%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
 </style>
 <body style="background-color:Cornsilk;">
-  <p>
-<div style="position: relative; left: 0; top: 0;">
+
     <a href="homepage.php">
       <img src="logo.png" alt="Logo" width="350" height="350">
-
-
     </a>
-</p>
 
 <form class="example" action="/action_page.php">
   <button type="submit">Search<i class="fa fa-search"></i></button>
   <input type="text" placeholder="Search products.." name="search">
 
 </form>
-<a class ="cart" href="cart.php">
-
-  <img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
+<a class="cart" href="cart.php">
+  <span style="float:right">0</span>
+<img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
 </a>
 
 
@@ -143,7 +169,7 @@ form.example::after {
   </div>
 </div>
 <div class="navbar" style:"float:middle;">
-  <a href="homepage.php">Home</a>
+<a href="homepage.php">Home</a>
   <div class="dropdown">
     <button class="dropbtn">Shop
       <i class="fa fa-caret-down"></i>
@@ -157,16 +183,25 @@ form.example::after {
 
   <a href="delivery.php">Delivery</a>
   <a href="about_us.php">About Us</a>
-
 </div>
 <br>
 <br>
-<p>
-<img src="homePicture.jpg" alt"backgroundF" width="1500" height="600">
-</p>
-
+<h2><p><span class="tab">Fruits</span></p><h2>
+  <div class="card" align="center">
+    <img src="orange.png" alt="orange" style="width:30%">
+    <h3>Orange</h3>
+    <p class="price">$1/lb</p>
+    <form action="connect-fcart.php" method="post">
+      <p><button>Add to Cart</button></p>
+      <input type="hidden" name="id" value="Orange" />
+      <input type="hidden" name="price" value="1" />
+      <input type="hidden" name="stock" value="1" />
+      <input type="hidden" name="weight" value="1" />
+    </form>
+  </div>
+  <br>
+  <br>
 </body>
-
 
 <style>
 .footer {
@@ -179,6 +214,7 @@ form.example::after {
   background-color: burlywood;
   color: white;
   margin: 0;
+  font-size: 16px;
 }
 .left{
   position: fixed;
@@ -189,6 +225,8 @@ form.example::after {
   bottom: 19;
   length: 10%;
   margin: -2;
+  font-size: 16px;
+  font-weight: 10;
 }
 .right{
   position: fixed;
@@ -199,12 +237,15 @@ form.example::after {
   length: 10%;
   text-align: right;
   margin: -2;
+  font-size: 16px;
+  font-weight: 10;
 }
 .center{
   text-align: center;
   bottom: 25;
   margin: 16;
   width: 94%;
+  font-weight: 10;
 }
 .copyright{
   position: fixed;
@@ -216,8 +257,13 @@ form.example::after {
   text-align: right;
   margin: -2;
   color: grey;
+  font-size: 16px;
 }
+
+
 </style>
+<br>
+
 <div class="Footer">
   <p class="left">Customer Service<br />Call: 408-666-6666</p>
   <p class="right">Location<br />66 North First St San Jose, CA 95114</p>

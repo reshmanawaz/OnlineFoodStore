@@ -157,16 +157,18 @@ form.example::after {
 
   <a href="delivery.php">Delivery</a>
   <a href="about_us.php">About Us</a>
-
 </div>
 <br>
 <br>
-<p>
-<img src="homePicture.jpg" alt"backgroundF" width="1500" height="600">
-</p>
-
+<div>
+  <h1 style="text-align:center">Delivery policy</h1>
+  <br>
+  <p style="margin-left:30%">There is a set shipping cost of $5 per orders weighing 20+ pounds, otherwise it's free!</p>
+  <p style="margin-left:30%">All orders to United States are inclusive of import duties.</p>
+  <p style="margin-left:30%">Due to complications from COVID-19, there may be some shipping delays. </p>
+  <p style="margin-left:30%">We apologize for any inconvenience and appreciate your continued support! </p>
+</div>
 </body>
-
 
 <style>
 .footer {
@@ -226,5 +228,4 @@ form.example::after {
 </div>
 </html>
 
-</html>
 </html>
