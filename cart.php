@@ -199,6 +199,8 @@ $records = mysqli_query($conn, $sql);
 
   while($row = mysqli_fetch_array($records)){
 
+
+error_reporting(0);
 echo "<tr>";
 echo "<td>".$row['product_id']."</td>";
 echo "<td>".$row['product_cart']."</td>";
