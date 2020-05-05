@@ -163,17 +163,17 @@ form.example::after {
 <p>
 <h1 style="text-align:center">About Us</h1>
   <br>
-  <h3 style="margin-left:30%">About Fresh Food</h3>
-  <p style="margin-left:30%">Welcome to the Fresh Food, newly opened organic market in San Jose, CA.</p>
-  <p style="margin-left:30%">We bring the food from local farms to provide products as fresh as possible.</p>
+  <h3 style="text-align:center">About Fresh Food</h3>
+  <p style="text-align:center">Welcome to the Fresh Food, newly opened organic market in San Jose, CA.</p>
+  <p style="text-align:center">We bring the food from local farms to provide products as fresh as possible.</p>
   <br>
-  <h3 style="margin-left:30%">Store Info</h3>
-  <p style="margin-left:30%">Address: 1 Washington Sq, San Jose, CA 95192</p>
-  <p style="margin-left:30%">Store Number: 111-111-1111</p>
-  <p style="margin-left:30%">Email: freshfood@sjsu.edu</p>
+  <h3 style="text-align:center">Store Info</h3>
+  <p style="text-align:center">Address: 1 Washington Sq, San Jose, CA 95192</p>
+  <p style="text-align:center">Store Number: 111-111-1111</p>
+  <p style="text-align:center">Email: freshfood@sjsu.edu</p>
   <br>
-  <h3 style="margin-left:30%">Career</h3>
-  <p style="margin-left:30%">Please contact via email or phone number</p>
+  <h3 style="text-align:center">Career</h3>
+  <p style="text-align:center">Please contact via email or phone number</p>
   <br>
   <br>
 </p>
