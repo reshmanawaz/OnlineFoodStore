@@ -1,8 +1,32 @@
 <?php
 session_start();
+
+if(!isset($_GET["id"])){
+    echo "Product ID Missing";
+    echo" Redirecting to the home page now...";
+    header("refresh:.1;url=homepage.php");
+}
+
+$conn = mysqli_connect("localhost", "root", "", "users");
+$sql = "SELECT * FROM products where id=".$_GET["id"];
+$results = mysqli_query($conn, $sql);
+
+if ($results) {
+    $r1 = mysqli_fetch_assoc($results);
+    $sql = "SELECT * FROM nutrition where product=".$_GET["id"];
+    $r2 = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM facts where product=".$_GET["id"];
+    $r3 = mysqli_query($conn, $sql);
+}
+else{
+    echo "Product ID Missing";
+    echo" Redirecting to the home page now...";
+    header("refresh:.1;url=homepage.php");
+}
+
 ?><html>
 <head>
-<title>Home</title>
+<title><?php echo $r1['name']; ?></title>
 </head>
 <style>
 img {
@@ -142,6 +166,108 @@ form.example::after {
 .card button:hover {
   opacity: 0.7;
 }
+@import "compass/css3";
+
+.performance-facts {
+  border: 1px solid black;
+  position: absolute;
+  top: 608px;
+  left: 120px;
+  margin: 12px;
+  float: left;
+  width: 280px;
+  padding: 0.2rem;
+  table {
+    border-collapse: collapse;
+  }
+}
+
+.performance-facts__header {
+  border-bottom: 10px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+  p {
+    margin: 0;
+  }
+}
+.performance-facts__table {
+  width: 100%;
+  thead tr {
+    th, td {
+      border: 1;
+    }
+  }
+  th, td {
+    font-weight: normal;
+    text-align: left;
+    padding: 0.25rem 0;
+    border-top: 1px solid black;
+    white-space: nowrap;
+  }
+  td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+  .blank-cell {
+    width: 1rem;
+    border-top: 0;
+  }
+  .thick-row {
+    th, td {
+      border-top-width: 6px;
+    }
+  }
+}
+.small-info {
+  font-size: 0.9rem;
+}
+
+.performance-facts__table--small {
+  @extend .performance-facts__table;
+  border-bottom: 1px solid #999;
+  margin: 0 0 0.5rem 0;
+  thead {
+    tr {
+      border-bottom: 2px solid black;
+    }
+  }
+  td {
+    &:last-child {
+      text-align: left;
+    }
+  }
+  th, td {
+    border: 1;
+    padding: 0;
+  }
+}
+
+.performance-facts__table--grid {
+  @extend .performance-facts__table;
+  margin: 0 0 0.5rem 0;
+  td {
+    &:last-child {
+      text-align: left;
+      &::before {
+        content: "•";
+        font-weight: bold;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-end {
+  border-bottom: 20px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
+
 </style>
 <body style="background-color:Cornsilk;">
 
@@ -149,14 +275,13 @@ form.example::after {
       <img src="images/logo.png" alt="Logo" width="350" height="350">
     </a>
 
-
 <form class="example" action="/action_page.php">
   <button type="submit">Search<i class="fa fa-search"></i></button>
   <input type="text" placeholder="Search products.." name="search">
 
 </form>
-<a class"cart" href="cart.php">
-
+<a class="cart" href="cart.php">
+  <span style="float:right">0</span>
 <img align="right" border="0" alt="cart" src="images/cart-logo.png" width="50" height="50">
 </a>
 
@@ -194,30 +319,76 @@ form.example::after {
 </div>
 <br>
 <br>
-<h2><p><span class="tab">Vegetable</span></p><h2>
-<?php
-
-$conn = mysqli_connect("localhost", "root", "", "users");
-$sql = "SELECT * FROM products where fruit=0";
-$records = mysqli_query($conn, $sql);
-
-while($row = mysqli_fetch_array($records)) {
-?>
-
-<div class="card" align="center">
-  <a href="show.php?id=<?php echo $row['id']; ?>">
-    <img src="images/<?php echo strtolower($row['name']); ?>.png" alt="<?php echo $row['name']; ?>" style="width:20%">
-    <h3><?php echo $row['name']; ?></h3>
-    <p class="price">$<?php echo $row['price']; ?></p></a>
-    <?php if($row['inventory'] > 0) {?>
-    <a href="add.php?id=<?php echo $row['id']; ?>"><p><button>Add to Cart</button></p></a>
+<h2><h1>
+<span class="tab">
+<?php if($r1['fruit'] == 1) {?>Fruit
+    <?php } else { ?>Vegetable <?php } ?>
+</span></h1><h2>
+  <div class="card" align="center">
+  <img src="images/<?php echo strtolower($r1['name']); ?>.png" alt="<?php echo $r1['name']; ?>" style="width:30%">
+    <h3><?php echo $r1['name']; ?></h3>
+    <p class="price">$<?php echo $r1['price']; ?></p>
+    <?php if($r1['inventory'] > 0) {?>
+    <a href="add.php?id=<?php echo $r1['id']; ?>"><p><button>Add to Cart</button></p></a>
     <?php } else { ?> <p> OUT OF STOCK </p>
     <?php } ?><br><br>
-</div>
+  </div>
+  <br>
+  <br>
+  <section class="performance-facts">
+        <b>Nutrition Facts:</b>
+             
+            <p colspan="2" class="small-info">
+            Serving Size: 1 <?php echo $r1['name']; ?> (<?php echo $r1['weight']; ?>lb)
+          </p>
+          <p colspan="2" class="small-info">
+            Calories per serving: <?php echo $r1['calories']; ?>
+          </p>
+          
 
-<?php } ?>
+    <table class="performance-facts__table--small small-info" >
+        <thead>
+            <tr>
+                
+                <th colspan="2">Nutrients:</th>
+                <th>Percentage:</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php while($row = mysqli_fetch_array($r3)) { ?>
+            <tr>
+            
+            <th colspan="2"><b><?php echo $row['content']; ?>:</b></th> 
+            <td><?php echo $row['percentage']; ?></td>
 
+            </tr>
+        <?php } ?>
+            </tbody>
+    </table>
+          
+
+    <table class="performance-facts__table--small small-info">
+      <thead>
+        <tr>
+          <th colspan="2">Breakdown:</th>
+          <th>Amount:</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php while($row = mysqli_fetch_array($r2)) { ?>
+        <tr>
+          <th colspan="2"><?php echo $row['content']; ?></th>
+          <td><?php echo $row['weight']; ?></td>
+        </tr>
+        <?php } ?>
+       
+      </tbody>
+    </table>
+  <p class="small-info" style = margin: auto;>* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs *</p>
+  
+  </section><br><br><br><br><br><br><br>
 </body>
+
 <style>
 .footer {
   position: fixed;
@@ -277,7 +448,6 @@ while($row = mysqli_fetch_array($records)) {
 
 
 </style>
-<br>
 <br>
 
 <div class="Footer">
