@@ -1,4 +1,6 @@
-<html>
+<?php
+session_start();
+?><html>
 <head>
 <title>Home</title>
 </head>
@@ -115,32 +117,33 @@ form.example::after {
   <p>
 <div style="position: relative; left: 0; top: 0;">
     <a href="homepage.php">
-      <img src="logo.png" alt="Logo" width="350" height="350">
+      <img src="images/logo.png" alt="Logo" width="350" height="350">
 
 
     </a>
 </p>
 
-<form class="example" action="/action_page.php">
-  <button type="submit">Search<i class="fa fa-search"></i></button>
-  <input type="text" placeholder="Search products.." name="search">
 
-</form>
 <a class ="cart" href="cart.php">
 
-  <img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
+  <img align="right" border="0" alt="cart" src="images/cart-logo.png" width="50" height="50">
 </a>
 
 
 <div class="dropdown" style="float:right;">
-  <img src="login logo.png" alt="Log" width="50" height="50" align="left">
-  <button class="dropbtn">Log In/ Sign Up</button>
+<img src="images/login logo.png" alt="Log" width="50" height="50" align="left">
+    <?php if (isset($_SESSION['id'])){ ?>
+        <button class="dropbtn">Welcome <?php echo $_SESSION['name']; ?></button>
+        <div class="dropdown-content">
+        <a href="logout.php">Logout</a>
 
-  <div class="dropdown-content">
-  <a href="login.php">Sign In</a>
-  <a href="create-account.php">Create Account</a>
-
-  </div>
+    <?php } else { ?>
+        <button class="dropbtn">Log In/ Sign Up</button>
+        <div class="dropdown-content">
+        <a href="login.php">Sign In</a>
+        <a href="create-account.php">Create Account</a>
+    <?php } ?>
+</div>
 </div>
 <div class="navbar" style:"float:middle;">
   <a href="homepage.php">Home</a>
@@ -162,7 +165,7 @@ form.example::after {
 <br>
 <br>
 <p>
-<img src="homePicture.jpg" alt"backgroundF" width="1500" height="600">
+<img src="images/homePicture.jpg" alt"backgroundF" width="1500" height="600">
 </p>
 
 </body>

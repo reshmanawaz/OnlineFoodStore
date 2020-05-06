@@ -1,8 +1,38 @@
 <?php
 session_start();
+if (!isset($_SESSION['id'])){
+  echo "Login First";
+  echo" Redirecting to the login page now...";
+  header("refresh:2;url=login.php");
+}
+
+$conn = mysqli_connect("localhost", "root", "", "users");
+$sql = "SELECT * FROM cart join products on products.id = cart.product_id";
+$records = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($records)<1) {
+  echo "Nothing in cart";
+  echo" Redirecting to the cart now...";
+  header("refresh:2;url=cart.php");
+}
+
+$price = 0;
+$delivery = 0;
+$weight = 0;
+
+while($row = mysqli_fetch_array($records)) {
+
+    $price = $price + $row['price']*$row['count'];
+    $weight = $weight + $row['weight']*$row['count'];
+
+}
+if($weight>20){
+    $delivery  = 5;
+}
+
 ?><html>
 <head>
-<title>Home</title>
+<title>Checkout</title>
 </head>
 <style>
 img {
@@ -111,39 +141,30 @@ form.example::after {
   clear: both;
   display: table;
 }
-.tab {position:absolute;left:150px; }
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
 
-.price {
-  color: grey;
-  font-size: 22px;
-  text-align: center;
-}
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 10%;
-  font-size: 18px;
-}
 
-.card button:hover {
-  opacity: 0.7;
+table {
+border-collapse: collapse;
+width: 70%;
+color: #588c7e;
+font-family: monospace;
+font-size: 25px;
+text-align: left;
 }
+th {
+background-color: #588c7e;
+color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+</style>
+</head>
+<body >
+
+
 </style>
 <body style="background-color:Cornsilk;">
+
 
     <a href="homepage.php">
       <img src="images/logo.png" alt="Logo" width="350" height="350">
@@ -151,7 +172,7 @@ form.example::after {
 
 
 
-<a class"cart" href="cart.php">
+<a class="cart" href="cart.php">
 
 <img align="right" border="0" alt="cart" src="images/cart-logo.png" width="50" height="50">
 </a>
@@ -185,35 +206,47 @@ form.example::after {
     </div>
   </div>
 
+
   <a href="delivery.php">Delivery</a>
   <a href="about_us.php">About Us</a>
 </div>
 <br>
 <br>
-<h2><p><span class="tab">Vegetable</span></p><h2>
-<?php
 
-$conn = mysqli_connect("localhost", "root", "", "users");
-$sql = "SELECT * FROM products where fruit=0";
-$records = mysqli_query($conn, $sql);
+<div style="margin:auto;text-align:center">
 
-while($row = mysqli_fetch_array($records)) {
-?>
+    <form action="buy.php" method="post">
+    <textarea name="add" placeholder="Enter Address" required="required"></textarea>
+    <br><br>
+    <input type="number" name="card" placeholder="Card Number" required>
+    <br><br>
+   
+    <table style="margin:auto; width:40%">
+        <tr> <td>Weight</td><td><?php echo $weight; ?>lb</td></tr>
+        <tr> <td>Delivery</td><td>$<?php echo $delivery; ?></td></tr>
+        <tr> <td>Price</td><td>$<?php echo $price; ?></td></tr>
+        <tr> <td>Total</td><td>$<?php echo $price + $delivery; ?></td></tr>
+    </table>
+        <br>
+   
+    <input type="submit" value="Buy Now">
+    </form>
 
-<div class="card" align="center">
-  <a href="show.php?id=<?php echo $row['id']; ?>">
-    <img src="images/<?php echo strtolower($row['name']); ?>.png" alt="<?php echo $row['name']; ?>" style="width:20%">
-    <h3><?php echo $row['name']; ?></h3>
-    <p class="price">$<?php echo $row['price']; ?></p></a>
-    <?php if($row['inventory'] > 0) {?>
-    <a href="add.php?id=<?php echo $row['id']; ?>"><p><button>Add to Cart</button></p></a>
-    <?php } else { ?> <p> OUT OF STOCK </p>
-    <?php } ?><br><br>
 </div>
 
-<?php } ?>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br><br>
+<br>
+<br>
+
 
 </body>
+
 <style>
 .footer {
   position: fixed;
@@ -225,7 +258,6 @@ while($row = mysqli_fetch_array($records)) {
   background-color: burlywood;
   color: white;
   margin: 0;
-  font-size: 16px;
 }
 .left{
   position: fixed;
@@ -236,8 +268,6 @@ while($row = mysqli_fetch_array($records)) {
   bottom: 19;
   length: 10%;
   margin: -2;
-  font-size: 16px;
-  font-weight: 10;
 }
 .right{
   position: fixed;
@@ -248,15 +278,12 @@ while($row = mysqli_fetch_array($records)) {
   length: 10%;
   text-align: right;
   margin: -2;
-  font-size: 16px;
-  font-weight: 10;
 }
 .center{
   text-align: center;
   bottom: 25;
   margin: 16;
   width: 94%;
-  font-weight: 10;
 }
 .copyright{
   position: fixed;
@@ -268,14 +295,8 @@ while($row = mysqli_fetch_array($records)) {
   text-align: right;
   margin: -2;
   color: grey;
-  font-size: 16px;
 }
-
-
 </style>
-<br>
-<br>
-
 <div class="Footer">
   <p class="left">Customer Service<br />Call: 408-666-6666</p>
   <p class="right">Location<br />66 North First St San Jose, CA 95114</p>

@@ -1,3 +1,53 @@
+<?php
+session_start();
+?>
+
+<?php
+if (isset($_SESSION['id'])){
+  echo "Already Logged In";
+  echo" Redirecting to the home page now...";
+  header("refresh:1;url=homepage.php");
+}
+
+$logged_in = false;
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+if ($_POST["username"] && $_POST["password"]) {
+$username = $_POST["username"];
+$password = $_POST["password"];
+// create connection
+$conn = mysqli_connect("localhost", "root", "", "users");
+// check connection
+if (!$conn) {
+die("Connection failed: " . mysqli_connect_error());
+}
+// register user
+$sql = "SELECT password,id,fname FROM customers WHERE username = '$username'";
+$results = mysqli_query($conn, $sql);
+if ($results) {
+$row = mysqli_fetch_assoc($results);
+if ($row["password"] === $password) {
+$logged_in = true;
+$_SESSION["name"] = $row["fname"];
+$_SESSION["id"] = $row["id"];
+ echo "Welcome " . $_POST["username"];
+ echo "\nRedirecting to the home page now...";
+$sql = "SELECT * FROM customers";
+$results = mysqli_query($conn, $sql);
+header("refresh:5;url=homepage.php");
+
+} else {
+echo "user name or password incorrect;";
+}
+} else {
+echo mysqli_error($conn);
+}
+mysqli_close($conn); // close connection
+} else {
+echo "Nothing was submitted.";
+}
+}
+?>
+
 <html>
 <head>
 <title> Login</title>
@@ -118,30 +168,31 @@ form {
 <body style="background-color:Cornsilk;">
 
     <a href="homepage.php">
-      <img src="logo.png" alt="Logo" width="350" height="350">
+      <img src="images/logo.png" alt="Logo" width="350" height="350">
     </a>
 
-<form class="example" action="/action_page.php">
-  <button type="submit">Search<i class="fa fa-search"></i></button>
-  <input type="text" placeholder="Search products.." name="search">
 
-</form>
 <a href="cart.php">
-<img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
+<img align="right" border="0" alt="cart" src="images/cart-logo.png" width="50" height="50">
 </a>
 
 
 <div class="dropdown" style="float:right;">
-  <img src="login logo.png" alt="Log" width="50" height="50" align="left">
-  <button class="dropbtn">Log In/ Sign Up</button>
+<img src="images/login logo.png" alt="Log" width="50" height="50" align="left">
+    <?php if (isset($_SESSION['id'])){ ?>
+        <button class="dropbtn">Welcome <?php echo $_SESSION['name']; ?></button>
+        <div class="dropdown-content">
+        <a href="logout.php">Logout</a>
 
-  <div class="dropdown-content">
-  <a href="login.php">Sign In</a>
-  <a href="create-account.php">Create Account</a>
-
-  </div>
+    <?php } else { ?>
+        <button class="dropbtn">Log In/ Sign Up</button>
+        <div class="dropdown-content">
+        <a href="login.php">Sign In</a>
+        <a href="create-account.php">Create Account</a>
+    <?php } ?>
 </div>
-<div class="navbar" style:"float:middle;">
+</div>
+<div class="navbar">
 <a href="homepage.php">Home</a>
   <div class="dropdown">
     <button class="dropbtn">Shop
@@ -160,55 +211,23 @@ form {
 <br>
 <br>
 <br>
-<h3 style="text-align:center" ><p>Please input username and password</span></p></h3>
+<h3 style="text-align:center" ><p>Please input username and password </span></p></h3>
 <br>
 
-<form action="/login.php" method="post">
-<input type="text" name="username">
-
-<input type="password" name="password">
-
-<input type="submit">
+<form action="login.php" method="post">
+  <input type="text" name="username">
+  <br><br>
+  <input type="password" name="password">
+  <br><br>
+  <input type="submit">
 </form>
 
-
-<?php
-$logged_in = false;
-if (isset($_POST["username"]) && isset($_POST["password"])) {
-if ($_POST["username"] && $_POST["password"]) {
-$username = $_POST["username"];
-$password = $_POST["password"];
-// create connection
-$conn = mysqli_connect("localhost", "root", "", "users");
-// check connection
-if (!$conn) {
-die("Connection failed: " . mysqli_connect_error());
-}
-// register user
-$sql = "SELECT password FROM customers WHERE username = '$username'";
-$results = mysqli_query($conn, $sql);
-if ($results) {
-$row = mysqli_fetch_assoc($results);
-if ($row["password"] === $password) {
-$logged_in = true;
- echo "Welcome " . $_POST["username"];
- echo" Redirecting to the home page now...";
-$sql = "SELECT * FROM customers";
-$results = mysqli_query($conn, $sql);
-header("refresh:5;url=http://localhost/homepage.php");
-
-} else {
-echo "user name or password incorrect";
-}
-} else {
-echo mysqli_error($conn);
-}
-mysqli_close($conn); // close connection
-} else {
-echo "Nothing was submitted.";
-}
-}
-?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </body>
 

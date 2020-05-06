@@ -1,4 +1,6 @@
-<html>
+<?php
+session_start();
+?><html>
 <head>
 <title>Home</title>
 </head>
@@ -144,27 +146,28 @@ form.example::after {
 <body style="background-color:Cornsilk;">
 
     <a href="homepage.php">
-      <img src="logo.png" alt="Logo" width="350" height="350">
+      <img src="images/logo.png" alt="Logo" width="350" height="350">
     </a>
-<form class="example" action="/action_page.php">
-  <button type="submit">Search<i class="fa fa-search"></i></button>
-  <input type="text" placeholder="Search products.." name="search">
 
-</form>
 <a href="cart.php">
-<img align="right" border="0" alt="cart" src="cart-logo.png" width="50" height="50">
+<img align="right" border="0" alt="cart" src="images/cart-logo.png" width="50" height="50">
 </a>
 
 
 <div class="dropdown" style="float:right;">
-  <img src="login logo.png" alt="Log" width="50" height="50" align="left">
-  <button class="dropbtn">Log In/ Sign Up</button>
+<img src="images/login logo.png" alt="Log" width="50" height="50" align="left">
+    <?php if (isset($_SESSION['id'])){ ?>
+        <button class="dropbtn">Welcome <?php echo $_SESSION['name']; ?></button>
+        <div class="dropdown-content">
+        <a href="logout.php">Logout</a>
 
-  <div class="dropdown-content">
-  <a href="login.php">Sign In</a>
-  <a href="create-account.php">Create Account</a>
-
-  </div>
+    <?php } else { ?>
+        <button class="dropbtn">Log In/ Sign Up</button>
+        <div class="dropdown-content">
+        <a href="login.php">Sign In</a>
+        <a href="create-account.php">Create Account</a>
+    <?php } ?>
+</div>
 </div>
 <div class="navbar" style:"float:middle;">
 <a href="homepage.php">Home</a>
@@ -185,50 +188,34 @@ form.example::after {
 <br>
 <br>
 <h2><p><span class="tab">Fruits</span></p><h2>
-  <div class="card" align="center">
-    <a href="apple-page.php">
-    <img src="apple.png" alt="apple" style="width:20%">
-    <h3>Apple</h3>
-    <p class="price">$1</p>
-    <form action="connect-fcart.php" method="post">
-      <p><button>Add to Cart</button></p>
-      <input type="hidden" name="id" value="Apple" />
-      <input type="hidden" name="price" value="1" />
-      <input type="hidden" name="stock" value="1" />
-      <input type="hidden" name="weight" value="1" />
-    </form>
-  </div>
+
+
+<?php
+
+$conn = mysqli_connect("localhost", "root", "", "users");
+$sql = "SELECT * FROM products where fruit=1";
+$records = mysqli_query($conn, $sql);
+
+while($row = mysqli_fetch_array($records)) {
+?>
+
+<div class="card" align="center">
+  <a href="show.php?id=<?php echo $row['id']; ?>">
+    <img src="images/<?php echo strtolower($row['name']); ?>.png" alt="<?php echo $row['name']; ?>" style="width:20%">
+    <h3><?php echo $row['name']; ?></h3>
+    <p class="price">$<?php echo $row['price']; ?></p></a>
+    <?php if($row['inventory'] > 0) {?>
+    <a href="add.php?id=<?php echo $row['id']; ?>"><p><button>Add to Cart</button></p></a>
+    <?php } else { ?> <p> OUT OF STOCK </p>
+    <?php } ?><br><br>
+</div>
+
+<?php } ?>
+
+  
   <br>
   <br>
 
-  <div class="card" align="center">
-    <a href="banana-page.php">
-    <img src="banana.png" alt="banana" style="width:20%">
-
-    <h3>Banana</h3>
-    <p class="price">$1</p>
-    <form action="connect-fcart.php" method="post">
-      <p><button>Add to Cart</button></p>
-      <input type="hidden" name="id" value="Banana" />
-      <input type="hidden" name="price" value="1" />
-      <input type="hidden" name="stock" value="1" />
-      <input type="hidden" name="weight" value="1" />
-    </form>
-  </div>
-  <div class="card" align="center">
-    <a href="orange-page.php">
-    <img src="orange.png" alt="orange " style="width:20%">
-
-    <h3>Orange</h3>
-    <p class="price">$1</p>
-    <form action="connect-fcart.php" method="post">
-      <p><button>Add to Cart</button></p>
-      <input type="hidden" name="id" value="Orange" />
-      <input type="hidden" name="price" value="1" />
-      <input type="hidden" name="stock" value="1" />
-      <input type="hidden" name="weight" value="1" />
-    </form>
-  </div>
 
 </body>
 
